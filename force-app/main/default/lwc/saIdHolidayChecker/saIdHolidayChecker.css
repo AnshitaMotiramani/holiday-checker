@@ -1,0 +1,11 @@
+.description {
+    background: #f4f6f9;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.description h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+}

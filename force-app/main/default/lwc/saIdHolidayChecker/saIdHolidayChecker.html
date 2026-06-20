@@ -1,0 +1,35 @@
+<template>
+    <lightning-card title="South African Holiday Checker">
+        <div class="slds-p-around_medium">
+
+            <div class="description">
+                <h2>Check Public Holidays</h2>
+                <p>
+                    Enter a South African ID Number to retrieve public holiday
+                    information for the year of birth.
+                </p>
+            </div>
+
+            <lightning-input
+                label="South African ID Number"
+                value={idNumber}
+                onchange={handleIdChange}>
+            </lightning-input>
+
+            <div class="slds-m-top_medium">
+                <lightning-button
+                    label="Search"
+                    variant="brand"
+                    onclick={handleSearch}>
+                </lightning-button>
+            </div>
+
+            <template if:true={message}>
+                <div class="slds-m-top_medium">
+                    {message}
+                </div>
+            </template>
+
+        </div>
+    </lightning-card>
+</template>
