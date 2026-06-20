@@ -8,4 +8,20 @@
 .description h2 {
     font-size: 1.1rem;
     font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.description p {
+    margin: 0;
+}
+
+.error-message {
+    color: #ba0517;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.success-message {
+    color: #2e844a;
+    font-weight: 500;
 }
