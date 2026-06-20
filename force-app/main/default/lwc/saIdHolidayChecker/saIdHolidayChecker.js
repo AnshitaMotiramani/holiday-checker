@@ -24,15 +24,16 @@ export default class SaIdHolidayChecker extends LightningElement {
             return;
         }
 
+        if (!/^\d+$/.test(currentId)) {
+            this.errorMessage = 'ID Number must contain only numeric characters.';
+            return;
+        }
+        
         if (!/^[0-9]{13}$/.test(currentId)) {
             this.errorMessage = 'ID Number must contain exactly 13 digits.';
             return;
         }
 
-        if (!/^\d+$/.test(currentId)) {
-            this.errorMessage = 'ID Number must contain only numeric characters.';
-            return;
-        }
 
         if (!this.isValidBirthDate(currentId)) {
             this.errorMessage = 'ID Number contains an invalid date of birth.';
