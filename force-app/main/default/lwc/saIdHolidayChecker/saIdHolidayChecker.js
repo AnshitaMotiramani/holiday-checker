@@ -10,6 +10,12 @@ export default class SaIdHolidayChecker extends LightningElement {
         return this.errorMessage !== '' || this.idNumber === '';
     }
 
+    get hasHolidays() {
+        return this.searchResult &&
+            this.searchResult.holidays &&
+            this.searchResult.holidays.length > 0;
+    }
+
     handleIdChange(event) {
         this.idNumber = event.target.value ? event.target.value.trim() : '';
         this.message = '';
@@ -28,7 +34,7 @@ export default class SaIdHolidayChecker extends LightningElement {
             this.errorMessage = 'ID Number must contain only numeric characters.';
             return;
         }
-        
+
         if (!/^[0-9]{13}$/.test(currentId)) {
             this.errorMessage = 'ID Number must contain exactly 13 digits.';
             return;

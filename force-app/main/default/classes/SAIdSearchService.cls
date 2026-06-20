@@ -13,6 +13,10 @@ public with sharing class SAIdSearchService {
     public static SearchResult saveSearch(String idNumber) {
         SearchResult result = decodeIdNumber(idNumber);
 
+          // Callout must happen before DML.
+        Integer birthYear = result.dateOfBirth.year();
+        result.holidays = CalendarificService.getHolidays(birthYear);
+
         List<SA_ID_Search__c> existingRecords = [
             SELECT Id, Search_Count__c
             FROM SA_ID_Search__c
@@ -42,9 +46,6 @@ public with sharing class SAIdSearchService {
             result.searchCount = searchRecord.Search_Count__c;
             result.message = 'Search record updated successfully.';
         }
-
-        Integer birthYear = result.dateOfBirth.year();
-        result.holidays = CalendarificService.getHolidays(birthYear);
 
         return result;
     }

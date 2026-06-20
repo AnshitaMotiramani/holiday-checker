@@ -40,6 +40,18 @@
                 </div>
             </template>
 
+            <template if:true={hasHolidays}>
+                <div class="result-container slds-m-top_large">
+                    <h3>Public Holidays</h3>
+
+                    <template for:each={searchResult.holidays} for:item="holiday">
+                        <p key={holiday.name}>
+                            <strong>{holiday.dateValue}</strong> - {holiday.name}
+                        </p>
+                    </template>
+                </div>
+            </template>
+
             <template if:true={searchResult}>
 
                 <div class="result-container slds-m-top_large">
