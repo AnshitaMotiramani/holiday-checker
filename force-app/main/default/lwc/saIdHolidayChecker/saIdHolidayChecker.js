@@ -99,9 +99,11 @@ export default class SaIdHolidayChecker extends LightningElement {
         }
 
         try {
-            this.message = await searchIdNumber({
+            this.searchResult = await searchIdNumber({
                 idNumber: this.idNumber
             });
+
+            this.message = this.searchResult.message;
         } catch (error) {
             this.message = 'Something went wrong while searching.';
             console.error(error);

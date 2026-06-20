@@ -1,7 +1,7 @@
 public with sharing class SAIdHolidayController {
 
     @AuraEnabled
-    public static String searchIdNumber(String idNumber) {
-        return 'Search initiated for ID: ' + idNumber;
+    public static SAIdSearchService.SearchResult searchIdNumber(String idNumber) {
+        return SAIdSearchService.saveSearch(idNumber);
     }
 }

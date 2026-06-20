@@ -40,6 +40,41 @@
                 </div>
             </template>
 
+            <template if:true={searchResult}>
+
+                <div class="result-container slds-m-top_large">
+
+                    <h3>Decoded Information</h3>
+
+                    <p>
+                        <strong>SA ID Number:</strong>
+                        {searchResult.idNumber}
+                    </p>
+
+                    <p>
+                        <strong>Date of Birth:</strong>
+                        {searchResult.dateOfBirth}
+                    </p>
+
+                    <p>
+                        <strong>Gender:</strong>
+                        {searchResult.gender}
+                    </p>
+
+                    <p>
+                        <strong>SA Citizen:</strong>
+                        {searchResult.saCitizen}
+                    </p>
+
+                    <p>
+                        <strong>Search Count:</strong>
+                        {searchResult.searchCount}
+                    </p>
+
+                </div>
+
+            </template>
+
         </div>
 
     </lightning-card>
