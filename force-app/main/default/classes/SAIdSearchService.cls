@@ -7,6 +7,7 @@ public with sharing class SAIdSearchService {
         @AuraEnabled public Boolean saCitizen;
         @AuraEnabled public Decimal searchCount;
         @AuraEnabled public String message;
+        @AuraEnabled public List<CalendarificService.Holiday> holidays;
     }
 
     public static SearchResult saveSearch(String idNumber) {
@@ -41,6 +42,9 @@ public with sharing class SAIdSearchService {
             result.searchCount = searchRecord.Search_Count__c;
             result.message = 'Search record updated successfully.';
         }
+
+        Integer birthYear = result.dateOfBirth.year();
+        result.holidays = CalendarificService.getHolidays(birthYear);
 
         return result;
     }
